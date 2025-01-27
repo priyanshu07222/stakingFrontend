@@ -1,13 +1,13 @@
 import { http, createConfig } from "wagmi";
-import { base, mainnet, optimism, anvil } from "wagmi/chains";
-import { metaMask, walletConnect, injected, safe } from "wagmi/connectors";
+import {  sepolia } from "wagmi/chains";
+import {  injected } from "wagmi/connectors";
 
-const projectId = "";
+
 
 export const config = createConfig({
-    chains: [ anvil],
+    chains: [ sepolia],
     connectors: [injected()],
     transports: {
-        [anvil.id]: http()
+        [sepolia.id]: http()
     }
 })

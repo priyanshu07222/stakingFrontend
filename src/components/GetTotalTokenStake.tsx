@@ -1,17 +1,11 @@
-import React from 'react'
+
 import useCallGetFunction from '../utils/readingContract';
 
 export const GetTotalTokenStake = () => {
-    // function data1() { console.log("heelo"); useCallGetFunction('getTokenStaked')}
-    const { data, isLoading, error } = useCallGetFunction("getTokenStaked");
+  const { data, isLoading, error } = useCallGetFunction("getTokenStaked");
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (isLoading) return <p className='text-center my-8 text-xl font-bold'>Loading...</p>;
+  if (error) return <p className='text-center font-semibold text-red-600 text-xl'>Error: Something Went wrong Please refresh</p>;
 
-  return <p>Total Tokens Staked: {data?.toString()}</p>;
-  // return (
-  //   <div>
-  //       <button className='p-3 bg-red-600 rounded' onClick={data1}>Token staked</button>
-  //   </div>
-  // )
+  return <p className='text-xl font-medium text-center text-gray-500 my-6'>Total ETH Staked:-  <span className='text-black'>{data?.toString()} ETH</span></p>;
 }

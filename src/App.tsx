@@ -1,15 +1,13 @@
-import { useState } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { WagmiProvider, useAccount } from 'wagmi'
 import { config } from './config'
 import { WalletOptions } from './components/WalletOptions';
 import { Account } from './components/Account';
-import { Stake } from './components/Stake';
-import { Unstake } from './components/Unstake';
+import { Landing } from './components/Landing';
 
 const query = new QueryClient();
 
-function ConnectWallet() {
+export function ConnectWallet() {
   const { isConnected } = useAccount()
   if (isConnected) return <Account />
   return <WalletOptions />
@@ -22,13 +20,18 @@ function App() {
         <QueryClientProvider client={query}>
           {/* <WalletOptions/> */}
           <div className='max-w-screen-xl mx-auto'>
-            <div className='flex justify-between  p-2 mx-2 mb-24 mt-4'>
-              <h1 className='text-2xl font-bold'>Staking Emission</h1>
-              <ConnectWallet />
-            </div>
+            <p className='text-center text-xs lg:text-sm pt-4 text-red-500 sm:font-semibold border-b'>Disclaimer: Currently Active on Sepolia Testnet</p>
+            <div className='sm:flex sm:justify-between sm:items-center  mx-4  mb-4 sm:mb-24 my-2 x-auto '>
+              <h1 className='sm:text-2xl font-bold text-2xl  text-center'>Staking Emission</h1>
+              <div className='hidden sm:block'>
 
-              <Stake />
-              <Unstake />
+                <ConnectWallet />
+              </div>
+            </div>
+            <div className='sm:hidden mb-8 px-2'>
+              <Account />
+            </div>
+            <Landing />
           </div>
         </QueryClientProvider>
       </WagmiProvider>

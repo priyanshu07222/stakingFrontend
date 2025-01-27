@@ -7,10 +7,10 @@ export function Account() {
   const { data: ensAvatar } = useEnsAvatar({ name: ensName! })
 
   return (
-    <div className='flex justify-between items-center gap-4'>
+    <div className='flex justify-between items-center gap-4 px-2 mt-2'>
       {ensAvatar && <img alt="ENS Avatar" src={ensAvatar} />}
-      {address && <div className='truncate w-44 font-light'><div >{ensName ? `${ensName} (${address})` : address}</div></div>}
-      <button className='bg-red-600 px-4 py-2 rounded-lg text-white font-semibold' onClick={() => disconnect()}>Disconnect</button>
+      {address && <div className='truncate font-light text-sm  '><div className='w-44 truncate font-semibold' >{ensName ? `${ensName} (${address})` : address}</div></div>}
+      {address && <button className='bg-red-600 px-2 sm:px-4 text-sm py-1 sm:py-2 rounded-lg text-white font-semibold active:scale-105' onClick={() => disconnect()}>Disconnect</button>}
     </div>
   )
 }
