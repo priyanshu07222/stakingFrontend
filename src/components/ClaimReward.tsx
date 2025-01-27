@@ -1,10 +1,10 @@
-import React from 'react'
+
 import { useWriteContract } from 'wagmi'
 import { stakeContractAbi } from '../stakeContractABI'
 import { GetRewards } from './GetRewards';
 
 export const ClaimReward = () => {
-    const { data, writeContract } = useWriteContract();
+    const { writeContract } = useWriteContract();
 
     async function claimReward() {
         writeContract({

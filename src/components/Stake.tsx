@@ -1,11 +1,11 @@
 import React from 'react'
-import { useAccount,  useWriteContract } from 'wagmi'
+import { useAccount, useWriteContract } from 'wagmi'
 import { stakeContractAbi } from '../stakeContractABI'
 import { GetTotalTokenStake } from './GetTotalTokenStake';
 import { parseEther } from 'viem';
 
 export const Stake = () => {
-    const { data, writeContract, error, isError } = useWriteContract();
+    const { writeContract, error, isError } = useWriteContract();
     const [amount, setAmount] = React.useState(0);
     const { isConnected } = useAccount();
 
@@ -24,6 +24,9 @@ export const Stake = () => {
     if (isError) {
         <p className='text-center text-red-500 font-semibold'>Error2: Something went wrong Please Refresh</p>
     }
+    if (error) {
+        <p className='text-center text-red-500 font-semibold'>Error2: Something went wrong Please Refresh</p>
+    }
     return (isConnected ?
         (<div className=''>
             <h2 className='text-2xl font-bold text-center mt-10'>Stake Ether</h2>
@@ -37,6 +40,7 @@ export const Stake = () => {
                         <p>Reward fee</p>
                         <p>10%</p>
                     </div>
+                    
                 </div>
             </div>
 

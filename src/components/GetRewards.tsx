@@ -4,6 +4,7 @@ import useCallGetFunction from '../utils/readingContract'
 export const GetRewards = () => {
   const [shouldITrigger, setShouldITrigger] = React.useState(true)
   const data = useCallGetFunction('getRewards')
+  console.log(shouldITrigger);
   return (
     <div className=''>
       <h2 className='text-2xl font-bold text-center mt-10'>Reward Collected</h2>

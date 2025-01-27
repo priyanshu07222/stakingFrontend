@@ -4,7 +4,7 @@ import { stakeContractAbi } from '../stakeContractABI'
 import { GetTotalTokenStake } from './GetTotalTokenStake';
 
 export const Unstake = () => {
-    const { data, writeContract } = useWriteContract();
+    const { writeContract } = useWriteContract();
     const [amount, setAmount] = React.useState(0);
 
     const { isConnected } = useAccount()
